@@ -15,13 +15,13 @@
         "vue",
         "track"
     ],
+    "typings": "./index.d.ts",
     "author": "xuchongyu",
     "license": "MIT",
     "devDependencies": {
         "@rollup/plugin-commonjs": "^16.0.0",
         "@rollup/plugin-node-resolve": "^10.0.0",
-        "babel-core": "^6.9.1",
-        "babel-loader": "^6.2.4",
+        "babel-core": "^6.26.3",
         "babel-preset-env": "^1.7.0",
         "rollup": "^2.32.1",
         "rollup-plugin-babel": "^3.0.7",

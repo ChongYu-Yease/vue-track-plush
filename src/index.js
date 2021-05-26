@@ -6,22 +6,8 @@ console.log('timing', timing)
 
 window.onload = () => {
     console.log(
-        `dom解析耗时：${timing['domInteractive'] - timing['responseEnd']}毫秒`
-    )
-    console.log(
         `dom解析耗时：${timing['domComplete'] - timing['responseEnd']}毫秒`
     )
-    console.log(
-        `用户等待时间：${
-            timing['loadEventEnd'] - timing['navigationStart']
-        }毫秒`
-    )
-    console.log(
-        `loadEventEnd:${timing['loadEventEnd']}`,
-        `navigationStart:${timing['navigationStart']}`
-    )
-    // 1621930238306
-    // 1621930237947
 }
 // 指令 触发
 const install = function (Vue, trackPlusConfig) {

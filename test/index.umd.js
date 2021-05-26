@@ -1842,12 +1842,7 @@
   console.log('timing', timing);
 
   window.onload = function () {
-      console.log('dom\u89E3\u6790\u8017\u65F6\uFF1A' + (timing['domInteractive'] - timing['responseEnd']) + '\u6BEB\u79D2');
       console.log('dom\u89E3\u6790\u8017\u65F6\uFF1A' + (timing['domComplete'] - timing['responseEnd']) + '\u6BEB\u79D2');
-      console.log('\u7528\u6237\u7B49\u5F85\u65F6\u95F4\uFF1A' + (timing['loadEventEnd'] - timing['navigationStart']) + '\u6BEB\u79D2');
-      console.log('loadEventEnd:' + timing['loadEventEnd'], 'navigationStart:' + timing['navigationStart']);
-      // 1621930238306
-      // 1621930237947
   };
   // 指令 触发
   var install = function install(Vue, trackPlusConfig) {
