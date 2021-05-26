@@ -1,29 +1,50 @@
 // import Exposure from './exposure'
 import Click from './click'
 import Browse from './browse'
+const timing = performance.timing
+console.log('timing', timing)
 
+window.onload = () => {
+    console.log(
+        `dom解析耗时：${timing['domInteractive'] - timing['responseEnd']}毫秒`
+    )
+    console.log(
+        `dom解析耗时：${timing['domComplete'] - timing['responseEnd']}毫秒`
+    )
+    console.log(
+        `用户等待时间：${
+            timing['loadEventEnd'] - timing['navigationStart']
+        }毫秒`
+    )
+    console.log(
+        `loadEventEnd:${timing['loadEventEnd']}`,
+        `navigationStart:${timing['navigationStart']}`
+    )
+    // 1621930238306
+    // 1621930237947
+}
 // 指令 触发
-const install = function (Vue, trackPlushConfig) {
+const install = function (Vue, trackPlusConfig) {
     Vue.directive('track', {
         bind(el, binding) {
             const { arg } = binding
             arg.split('|').forEach((item) => {
                 // 点击
                 if (item === 'click') {
-                    new Click(trackPlushConfig).handleClickEvent({
+                    new Click(trackPlusConfig).handleClickEvent({
                         el,
                         type: 'instruction',
                     })
                 }
                 // 曝光
                 // else if (item === 'exposure') {
-                //     new Exposure(trackPlushConfig).handleExposureEvent({
+                //     new Exposure(trackPlusConfig).handleExposureEvent({
                 //         el,
                 //     })
                 // }
                 // 浏览
                 else if (item === 'browse') {
-                    new Browse(trackPlushConfig).handleBrowseEvent({
+                    new Browse(trackPlusConfig).handleBrowseEvent({
                         type: 'instruction',
                         el,
                     })
@@ -33,18 +54,17 @@ const install = function (Vue, trackPlushConfig) {
     })
 }
 
-// js 触发
-export function clickEvent(trackPlushConfig) {
-    new Click(trackPlushConfig).handleClickEvent({
-        buttonName: trackPlushConfig.buttonName,
+const clickEvent = (trackPlusConfig) => {
+    new Click(trackPlusConfig).handleClickEvent({
+        buttonName: trackPlusConfig.buttonName,
         type: 'customize',
     })
 }
-export function browseEvent(trackPlushConfig) {
-    new Browse(trackPlushConfig).handleBrowseEvent({
-        pageName: trackPlushConfig.pageName,
+const browseEvent = (trackPlusConfig) => {
+    new Browse(trackPlusConfig).handleBrowseEvent({
+        pageName: trackPlusConfig.pageName,
         type: 'customize',
     })
 }
 
-export default { install }
+export { install, clickEvent, browseEvent }

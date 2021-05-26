@@ -21,10 +21,6 @@ export default {
             name: 'VueTrackPlush',
         },
         {
-            file: './dist/index.amd.js',
-            format: 'amd',
-        },
-        {
             file: './dist/index.es.js',
             format: 'es',
         },

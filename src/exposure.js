@@ -4,10 +4,10 @@ import request from './fetch'
 IntersectionObserver.prototype['THROTTLE_TIMEOUT'] = 300
 
 export default class Exposure {
-    constructor(trackPlushConfig) {
-        this.trackPlushConfig = trackPlushConfig
+    constructor(trackPlusConfig) {
+        this.trackPlusConfig = trackPlusConfig
         this.cacheDataArr = []
-        this.maxNum = trackPlushConfig.maxNum || 20
+        this.maxNum = trackPlusConfig.maxNum || 20
         this._timer = 0
         this._observer = null
         this.init()
@@ -76,10 +76,10 @@ export default class Exposure {
         // track(data)
         // new request({
         //     timeout: 10000,
-        //     baseURL: this.trackPlushConfig.baseURL,
+        //     baseURL: this.trackPlusConfig.baseURL,
         //     withCredentials: true,
-        //     url: this.trackPlushConfig.url,
-        //     method: this.trackPlushConfig.method || 'post',
+        //     url: this.trackPlusConfig.url,
+        //     method: this.trackPlusConfig.method || 'post',
         //     data,
         // })
         // 更新localStoragee

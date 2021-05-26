@@ -2,8 +2,8 @@ import request from './fetch'
 
 // 页面浏览
 export default class Browse {
-    constructor(trackPlushConfig) {
-        this.trackPlushConfig = trackPlushConfig || {}
+    constructor(trackPlusConfig) {
+        this.trackPlusConfig = trackPlusConfig || {}
     }
     // 处理浏览事件
     handleBrowseEvent(entry) {
@@ -11,10 +11,11 @@ export default class Browse {
             this.track({
                 pageName: entry.pageName, //页面名称
                 userAgent:
-                    this.trackPlushConfig.userAgent || navigator.userAgent, //客户端设备
-                pageUrl: this.trackPlushConfig.pageUrl || window.location.href, //当前页面路径
-                projectName: this.trackPlushConfig.projectName, //项目名称
+                    this.trackPlusConfig.userAgent || navigator.userAgent, //客户端设备
+                pageUrl: this.trackPlusConfig.pageUrl || window.location.href, //当前页面路径
+                projectName: this.trackPlusConfig.projectName, //项目名称
                 actionType: '浏览事件',
+                param: this.trackPlusConfig.param || null, //业务参数
             })
         } else {
             const trackParams = entry.el.attributes['track-params']
@@ -22,10 +23,11 @@ export default class Browse {
             this.track({
                 pageName, //页面名称
                 userAgent:
-                    this.trackPlushConfig.userAgent || navigator.userAgent, //客户端设备
-                pageUrl: this.trackPlushConfig.pageUrl || window.location.href, //当前页面路径
-                projectName: this.trackPlushConfig.projectName, //项目名称
+                    this.trackPlusConfig.userAgent || navigator.userAgent, //客户端设备
+                pageUrl: this.trackPlusConfig.pageUrl || window.location.href, //当前页面路径
+                projectName: this.trackPlusConfig.projectName, //项目名称
                 actionType: '浏览事件',
+                param: this.trackPlusConfig.param || null, //业务参数
             })
         }
     }
@@ -37,10 +39,10 @@ export default class Browse {
     track(data) {
         new request({
             timeout: 10000,
-            baseURL: this.trackPlushConfig.baseURL,
+            baseURL: this.trackPlusConfig.baseURL,
             withCredentials: true,
-            url: this.trackPlushConfig.url,
-            method: this.trackPlushConfig.method || 'post',
+            url: this.trackPlusConfig.url,
+            method: this.trackPlusConfig.method || 'post',
             data,
         })
     }

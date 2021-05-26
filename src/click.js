@@ -1,18 +1,19 @@
 import request from './fetch'
 
 export default class Click {
-    constructor(trackPlushConfig) {
-        this.trackPlushConfig = trackPlushConfig || null
+    constructor(trackPlusConfig) {
+        this.trackPlusConfig = trackPlusConfig || null
     }
     handleClickEvent(entry) {
         if (entry.type === 'customize') {
             this.track({
                 buttonName: entry.buttonName,
                 userAgent:
-                    this.trackPlushConfig.userAgent || navigator.userAgent, //客户端设备
-                pageUrl: this.trackPlushConfig.pageUrl || window.location.href, //当前页面路径
-                projectName: this.trackPlushConfig.projectName, //项目名称
+                    this.trackPlusConfig.userAgent || navigator.userAgent, //客户端设备
+                pageUrl: this.trackPlusConfig.pageUrl || window.location.href, //当前页面路径
+                projectName: this.trackPlusConfig.projectName, //项目名称
                 actionType: '点击事件',
+                param: this.trackPlusConfig.param || null, //业务参数
             })
         } else {
             const trackParams = entry.el.attributes['track-params']
@@ -21,11 +22,12 @@ export default class Click {
                 this.track({
                     buttonName,
                     userAgent:
-                        this.trackPlushConfig.userAgent || navigator.userAgent, //客户端设备
+                        this.trackPlusConfig.userAgent || navigator.userAgent, //客户端设备
                     pageUrl:
-                        this.trackPlushConfig.pageUrl || window.location.href, //当前页面路径
-                    projectName: this.trackPlushConfig.projectName, //项目名称
+                        this.trackPlusConfig.pageUrl || window.location.href, //当前页面路径
+                    projectName: this.trackPlusConfig.projectName, //项目名称
                     actionType: '点击事件',
+                    param: this.trackPlusConfig.param || null, //业务参数
                 })
             })
         }
@@ -37,10 +39,10 @@ export default class Click {
     track(data) {
         new request({
             timeout: 10000,
-            baseURL: this.trackPlushConfig.baseURL,
+            baseURL: this.trackPlusConfig.baseURL,
             withCredentials: true,
-            url: this.trackPlushConfig.url,
-            method: this.trackPlushConfig.method || 'post',
+            url: this.trackPlusConfig.url,
+            method: this.trackPlusConfig.method || 'post',
             data,
         })
     }
