@@ -13,12 +13,12 @@ export default {
         {
             file: './dist/index.umd.js',
             format: 'umd',
-            name: 'VueTrackPlush',
+            name: 'vueTrackPlush',
         },
         {
             file: './test/index.umd.js',
             format: 'umd',
-            name: 'VueTrackPlush',
+            name: 'vueTrackPlush',
         },
         {
             file: './dist/index.esm.js',

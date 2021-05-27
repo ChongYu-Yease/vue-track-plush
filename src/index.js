@@ -1,13 +1,7 @@
 // import Exposure from './exposure'
 import Click from './click'
 import Browse from './browse'
-const timing = performance.timing
-
-window.onload = () => {
-    console.log(
-        `dom解析耗时：${timing['domComplete'] - timing['responseEnd']}毫秒`
-    )
-}
+import './page-event.js'
 // 指令 触发
 const install = function (Vue, trackPlusConfig) {
     Vue.directive('track', {
@@ -52,4 +46,4 @@ const browseEvent = (trackPlusConfig) => {
     })
 }
 
-export { install, clickEvent, browseEvent }
+export default { browseEvent, clickEvent, install }

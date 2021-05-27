@@ -1,9 +1,9 @@
 {
     "name": "vue-track-plush",
-    "version": "1.1.4",
+    "version": "1.2.4",
     "description": "基于vue自定义指令的埋点统计",
     "main": "dist/index.umd.js",
-    "module": "dist/index.esm.js",
+    "module": "dist/index.umd.js",
     "scripts": {
         "dev": "NODE_ENV=development ENV=daily rollup -c -w",
         "build": "NODE_ENV=production ENV=prod  rollup -c",
@@ -15,7 +15,7 @@
         "vue",
         "track"
     ],
-    "typings": "./index.d.ts",
+    "typings": "types.d.ts",
     "author": "xuchongyu",
     "license": "MIT",
     "devDependencies": {
@@ -33,6 +33,7 @@
     },
     "dependencies": {
         "axios": "^0.21.0",
-        "intersection-observer": "^0.11.0"
+        "intersection-observer": "^0.11.0",
+        "vue": "^2.6.12"
     }
 }
