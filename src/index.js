@@ -2,7 +2,6 @@
 import Click from './click'
 import Browse from './browse'
 const timing = performance.timing
-console.log('timing', timing)
 
 window.onload = () => {
     console.log(

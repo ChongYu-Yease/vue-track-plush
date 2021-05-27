@@ -18,7 +18,8 @@
     <div id="app"></div>
 
     <script src="./index.umd.js"></script>
-    <script lang="ts">
+    <script>
+        console.log("VueTrackPlush", VueTrackPlush)
         Vue.use(VueTrackPlush, { projectName: "项目名称", baseURL: "http://d.daily.vdian.net", url: "/api/action/record" })
         // VueTrackPlush.browseEvent({ projectName: "项目名称", baseURL: "http://d.daily.vdian.net", url: "/api/action/record" })
         // v-track:browse track-params="页面名称"

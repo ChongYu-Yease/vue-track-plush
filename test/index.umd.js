@@ -1839,7 +1839,6 @@
 
   // import Exposure from './exposure'
   var timing = performance.timing;
-  console.log('timing', timing);
 
   window.onload = function () {
       console.log('dom\u89E3\u6790\u8017\u65F6\uFF1A' + (timing['domComplete'] - timing['responseEnd']) + '\u6BEB\u79D2');
